@@ -20,7 +20,7 @@ public final class houseRulesConfig {
 	//In the FileConfiguration, a period '.' represents a break,
 	//therefore the string after the period is a ConfigurationSection "underneath" ConfigurationSection represented by the string before the period
 
-	public static final String NO_PERM_KEY = "locale.noperm";
+	public static final String NO_PERM_KEY = "locale.noPermissions";
 	public static final String CONFIG_RELOAD_KEY = "locale.reload";
 	public static final String HOUSERULES_MESSAGE = "houserules.message";
 	public static final String HOUSERULES_MESSAGE_COLOR = "houserules.color";
@@ -55,8 +55,10 @@ public final class houseRulesConfig {
 		noPermMessage = config.getString(NO_PERM_KEY, "&4You do not have permission for that!");
 		configReloadedMessage = config.getString(CONFIG_RELOAD_KEY, "&2[House Rules Config Reloaded]");
 		
-		houseRulesMessageColor = config.getString(HOUSERULES_MESSAGE_COLOR, ChatColor.WHITE.toString());
+		//houseRulesMessageColor = config.getString(HOUSERULES_MESSAGE_COLOR, ChatColor.WHITE.toString());
 		houseRulesMessage = config.getString(HOUSERULES_MESSAGE, "&4No House Rules have been setup.");
+
+		this.setHouseRulesMessageColor(config.getString(HOUSERULES_MESSAGE_COLOR, ChatColor.WHITE.toString()));
 	}
 	
 	/**
@@ -135,7 +137,9 @@ public final class houseRulesConfig {
 	 * @return The House Rules message
 	 */
 	public String getHouseRulesMessage() {
-		return ChatColor.translateAlternateColorCodes('&', houseRulesMessageColor).toString() + houseRulesMessage;
+		String returnValue = '\u00A7' + houseRulesMessageColor + houseRulesMessage;
+
+		return returnValue;
 	}
 
 	/**
@@ -158,8 +162,79 @@ public final class houseRulesConfig {
 	 * Sets the House Rules message color
 	 * @param The House Rules message color
 	 */
-	public void setHouseRulesMessageColor(String message) {
-		this.houseRulesMessageColor = message;
+	public void setHouseRulesMessageColor(String colorName) {
+		String colorValue;
+
+		switch (colorName)
+		{
+			case "BLACK":
+				colorValue = "0";
+				break;
+
+			case "DARK_BLUE":
+				colorValue = "1";
+				break;
+
+			case "DARK_GREEN":
+				colorValue = "2";
+				break;
+
+			case "DARK_AQUA":
+				colorValue = "3";
+				break;
+
+			case "DARK_RED":
+				colorValue = "4";
+				break;
+
+			case "DARK_PURPLE":
+				colorValue = "5";
+				break;
+
+			case "GOLD":
+				colorValue = "6";
+				break;
+
+			case "GRAY":
+				colorValue = "7";
+				break;
+
+			case "DARK_GRAY":
+				colorValue = "8";
+				break;
+
+			case "BLUE":
+				colorValue = "9";
+				break;
+
+			case "GREEN":
+				colorValue = "a";
+				break;
+
+			case "AQUA":
+				colorValue = "b";
+				break;
+
+			case "RED":
+				colorValue = "c";
+				break;
+
+			case "LIGHT_PURPLE":
+				colorValue = "d";
+				break;
+
+			case "YELLOW":
+				colorValue = "e";
+				break;
+
+			case "WHITE":
+				colorValue = "f";
+				break;
+			
+			default:
+				colorValue = "f";
+		}
+		this.houseRulesMessageColor = colorValue;
 	}
 
 	/**

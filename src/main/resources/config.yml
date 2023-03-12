@@ -1,4 +1,11 @@
-#The version. Do not touch this.
 version: 1.0
-
-houserules.use: true
+houserules:
+  
+  use: true
+  message: 
+  # Valid Color Codes are: BLACK, DARK_BLUE, DARK_GREEN, DARK_AQUA, DARK_RED, DARK_PURPLE
+  #     GOLD, GRAY, DARK_GRAY, BLUE, GREEN, AQUA, RED, LIGHT_PURPLE, YELLOW, WHITE
+  color: BLUE
+locale:
+  noPermissions: '&4You do not have permission for that!'
+  reload: '&2[House Rules Config Reloaded]'
