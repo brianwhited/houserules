@@ -1,0 +1,14 @@
+name: HouseRules
+version: 1.0
+description: Display the House Rules
+author: PDC
+authors: [brianwhited]
+website: https://pdc
+
+main: com.pdc.spigotmc.houserules.houseRulesPlugin
+
+commands:
+  houserules:
+    description: Display House Rules
+    permission: houserules.use
+    usage: /houserules

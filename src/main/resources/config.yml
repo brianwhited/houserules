@@ -1,0 +1,4 @@
+#The version. Do not touch this.
+version: 1.0
+
+houserules.use: true
